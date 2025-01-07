@@ -71,3 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 "# Amazon-login-page" 
 "# Amazon_Login_Page" 
 "# Amazon_Login_Page" 
+"# Amazon_Login_Page" 
