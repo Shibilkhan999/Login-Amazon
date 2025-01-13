@@ -3,20 +3,24 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from 'yup';
 import './All1.css';
 import { useNavigate } from 'react-router';
+import { name } from 'ajv';
 
 const Login = () => {
 
     const initialValues = {
-        email: '',
-        password: '',
+        name: 'emilys',
+        email: 'emilyspass@gmail',
+        password: 'emilyspass',
     };
 
     const validationSchema = Yup.object({
+        name: Yup.string()
+        .required("Enter your username"),
         email: Yup.string()
         .email("Invalid email address")
         .required("Enter your email or mobile phone number"),
         password: Yup.string()
-        .min(6, "Password must be at least 6 characters")
+        .min(8, "Password must be at least 8 characters")
         .required("Enter your password"),
       });
 
@@ -25,11 +29,11 @@ const Login = () => {
     const handleSubmit = (values) => {
         console.log("Form Submitted", values);
 
-        Navigate("/homepage");
+        Navigate("/loginup");
 
-        setTimeout(() => {
-            Navigate("home2");
-        }, 5000);
+        // setTimeout(() => {
+        //     Navigate("home2");
+        // }, 10000);
    
       };
 
@@ -52,9 +56,9 @@ const Login = () => {
           {/* Right Section */}
           <div className="right-section">
             <div className="login-box">
-              <h2>Login</h2>
+              <h2>Sign up</h2>
               <p>
-                Don't have an account? <a href="/signup">Sign up →</a>
+                Don't have an account? <a href="/signup">Login up →</a>
               </p>
               <Formik
                 initialValues={initialValues}
@@ -63,6 +67,23 @@ const Login = () => {
               >
                 <Form>
                   <div className="form-group">
+                  <label htmlFor="name">Username</label>
+                    <div className="input-icon">
+                      <Field
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                      />
+                    
+                    </div>
+                    <ErrorMessage
+                      name="name"
+                      component="div"
+                      className="error-message"
+                    />
+                    <div/>
+
                     <label htmlFor="email">Email</label>
                     <div className="input-icon">
                       <Field
@@ -71,7 +92,7 @@ const Login = () => {
                         name="email"
                         placeholder="Enter your email"
                       />
-                      <span className="icon">📧</span>
+                      
                     </div>
                     <ErrorMessage
                       name="email"
@@ -89,7 +110,7 @@ const Login = () => {
                         name="password"
                         placeholder="Enter your password"
                       />
-                      <span className="icon">🔒</span>
+                      
                     </div>
                     <ErrorMessage
                       name="password"
@@ -99,7 +120,7 @@ const Login = () => {
                   </div>
   
                   <button type="submit" className="submit-button">
-                    Login
+                    Sign up
                   </button>
                 </Form>
               </Formik>

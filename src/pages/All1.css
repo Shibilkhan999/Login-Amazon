@@ -250,7 +250,7 @@ h5 {
     display: flex;
     justify-content: center;
     align-items: center; 
-    min-height: 130vh;
+    min-height: 110vh;
     background-color: white;
   }
   
@@ -516,3 +516,5 @@ h5 {
   .submit-button:hover {
     background-color: #e68a00;
   } */
+
+  
